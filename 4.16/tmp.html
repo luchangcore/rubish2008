@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+</body>
+</html>
+<script src="../js/vuemin.js"></script>
+<script>
+    //创建组件    组件名
+    Vue.component("button-test",{
+        //属性 起到过度作用过度给模板
+        props:['count'],
+        //模板
+        template:"<button>{{count}}</button>"
+    })
+    //组件
+   let compa={
+       template:"<h3>{{msg}}</h3>"
+   }
+   new Vue({
+      el:"#app", //挂载点  容器id
+      componets:{
+        "test":compa
+      }
+   })
+</script>

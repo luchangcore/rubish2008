@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+     <h1>hello app!</h1>
+     <p>
+         <!-- 使用router-link组件来导航 -->
+         <!-- 通过传入的‘to’属性指定连接 -->
+         <!-- <router-link></router-link>这个标签是固定的会转成<a> 标签-->
+         <router-link to="/bar">Go to 1号</router-link>
+         <router-link to="/foo">GO to 2号</router-link>
+     </p>
+     <!-- 路由出口 -->
+     <!-- 路由匹配到组件将渲染到这里 -->
+     <!-- 固定标签 -->
+     <router-view></router-view>
+    </div>
+</body>
+</html>
+<script src="../js/vue-router.v3.5.1.js"></script>
+<script src="../js/vuemin.js"></script>
+<script>
+     //点击foo的之后组件foo会到view里面
+    //定义两个组件  到最后都会放到view里面
+    const Foo={ template:'<div>2号</div>'}
+    const Bar={ template:'<div>1号</div>'}
+
+    //定义路由
+    const routes=[
+        {path:'/foo',component:Foo},
+        {path:'/bar',component:Bar}
+    ]
+    //实例化vueRouter
+    const router=new VueRouter({
+        //属性
+       routes// routers:router,
+    })
+    //实例化vue
+    new Vue({
+        el:"#app",
+        router: router
+    })
+</script>
